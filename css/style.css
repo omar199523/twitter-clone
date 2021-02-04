@@ -6,3 +6,109 @@
 body{
     
 }
+/* styleing main header */
+.main-header{
+    width: 100%;
+    padding: 15px 50px 15px 50px;
+    background-color: #45A29E;
+}
+.main-header h1{
+    color: white;
+    font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+
+}
+/* ende main header */
+
+/* *************************************** */
+
+/* styleing main  */
+
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 50px auto;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: #ddd 0px 0px 0px,
+                #ddd 0px 5px 5px,
+                #ddd 0px 10px 10px;
+}
+@media (max-width:768px){
+    .main{
+        width: 100%;
+        
+    }
+}
+@media (min-width:767px){
+    .main{
+        width: 667px;
+    }
+}
+@media (min-width:991px){
+    .main{
+        width: 861px;
+    }
+}
+@media (min-width:1200px ){
+    .main{
+        width:800px;
+    }
+}
+.form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px 10px 40px;
+}
+.form *{
+    border: 1px solid #ddd;
+}
+.form textarea{
+    padding: 10px;
+    border-radius: 15px;
+}
+.form input{
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+.form button{
+    width: 80px;
+    position: absolute;
+    right: 40px;
+    bottom: -30px;
+    padding: 7px;
+    
+    
+}
+.form label{
+    visibility: hidden;
+}
+.newsfeed{
+    height: 70vh;
+}
+
+/* ende main  */
+
+/* *************************************** */
+
+/* styleing main header */
+/* ende main header */
+
+/* *************************************** */
+
+/* styleing main header */
+/* ende main header */
+
+/* *************************************** */
+
+/* styleing main header */
+/* ende main header */
+
+/* *************************************** */
+
+/* styleing main header */
+/* ende main header */
+
+/* *************************************** */
