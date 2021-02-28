@@ -9,14 +9,19 @@
 <body>
     <header class ="main-header">
         <h1>TWITTER CLONE</h1>
-
     </header>
-    <main class = "main">
-        <form class ="form" id="form">
+
+    <div id="loginContiner" class="login">
+        <h2>longin</h2>
+        <label for="userName">userName</label>
+        <input type="text" name="userName" id="userName" placeholder="pleace enter youer username"/>
+        <button id = "login">login</button>
+    </div>
+
+    <main class = "main" id="main">
+        <form class ="form " id="form">
             <label for="tweet">tweet</label>
             <textarea name="tweet" id="tweet" cols="30" rows="5" placeholder="pleace enter youer tweet"></textarea>
-            <label for="userName">userName</label>
-            <input type="text" name="userName" id="userName" placeholder="pleace enter youer username"/>
             <button type="submit">send</button>
         </form>
         <div id="newsfeed" class = "newsfeed"></div>

@@ -3,9 +3,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    
-}
+
 /* styleing main header */
 .main-header{
     width: 100%;
@@ -21,10 +19,43 @@ body{
 
 /* *************************************** */
 
+/* styleing login form*/
+.login{
+    margin: 30vh auto;
+    padding: 15px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: #ddd 0px 0px 0px,
+                #ddd 0px 5px 5px,
+                #ddd 0px 10px 10px;
+}
+.login *{
+    padding: 8px;
+    margin-bottom:6px ;
+}
+.login h2{
+    text-align: center;
+    background-color: #45A29E;
+}
+.login label{
+    font-size: medium;
+    font-weight: bold;
+}
+.login input,button{
+    border: 1.2px solid rgb(63, 60, 60);
+    border-radius: 7px;
+}
+/* end login form*/
+
+/* *************************************** */
+
 /* styleing main  */
 
 .main{
-    display: flex;
+    display: none;
     flex-direction: column;
     padding: 15px;
     margin: 50px auto;
@@ -86,29 +117,80 @@ body{
     visibility: hidden;
 }
 .newsfeed{
-    height: 70vh;
+    margin: 70px 40px 0px 40px;
+    border: 1px solid #ddd;
+    border-radius:20px ;
+    padding: 15px
 }
 
 /* ende main  */
 
-/* *************************************** */
-
-/* styleing main header */
-/* ende main header */
 
 /* *************************************** */
 
-/* styleing main header */
-/* ende main header */
+
+/* styleing tweet continer */
+.tweet-continer{
+    padding: 10px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    margin-top:10px ;
+}
+.user-continer{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom:1px solid #ddd;
+}
+.user-img{
+    width: 40px;
+    height: 40px;
+    background-color: aquamarine;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2em;
+
+}
+.user-name-continer{
+    width: 300px;
+    margin-left: 20px;
+    line-height: 1.5em;
+}
+
+.tweet-date{
+    margin-left: 50px;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.tweet{
+    margin-left: 50px;
+    font-size: large;
+    padding: 20px;
+}
+.button-continer{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top:1px solid #ddd;
+}
+.button-continer button{
+    padding: 10px;
+}
+/* end tweet continer */
+
 
 /* *************************************** */
 
-/* styleing main header */
-/* ende main header */
-
-/* *************************************** */
-
-/* styleing main header */
-/* ende main header */
+/* styleing grneral */
+.active-like{
+    background-color: red;
+    color: white;
+}
+/* ende grneral */
 
 /* *************************************** */
