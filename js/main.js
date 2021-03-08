@@ -1,5 +1,7 @@
-let data =[];
 
+let data =(localStorage.getItem('tweets'))?JSON.parse(localStorage.getItem('tweets')):[];
+let count =(localStorage.getItem('tweets'))?Number(localStorage.getItem('count')):1;
+console.log(data)
 let newsFeed = document.getElementById('newsfeed');
     form = document.getElementById('form'),
     tweet = document.getElementById('tweet'),
@@ -18,19 +20,49 @@ document.getElementById("login").addEventListener('click',()=>{
 
 })
 function likein(){
-    this.classList.toggle('active-like');
-    console.log('like')
     let parantId = this.parentElement.parentElement.id;
-    console.log(parantId)
+    data.find(x => x.id ===parantId && x.likeUser.indexOf(userName) ===-1).likeUser.push(userNameLogin);
+    createTweets(data);
 
+    this.classList.toggle('active-like');
 }
 function reTweet(){
-    console.log('reTweet');
+   
+    let parantId = this.parentElement.parentElement.id;
+    data.find(x => x.id ===parantId && x.reTweetUser.indexOf(userName) ===-1).reTweetUser.push(userNameLogin);
+    createTweets(data);
+
     this.classList.toggle('active-like');
+
+    localStorage.setItem('tweets',JSON.stringify(data))
+    this.classList.toggle('active-like');
+    
+}
+
+function createAndAddTweet(tweet){
+    if(tweet.value !==""){
+        let date = new Date();
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let dateForm = `${days[date.getDay()]} , ${date.getFullYear()}-${date.getMonth()} -${date.getDate()} , ${(date.getHours()>12)?date.getHours()-12:date.getHours()}:${date.getMinutes()} ${(date.getHours()>12)? "PM":"AM"}`
+
+        let tweetData ={
+            id:`${count}`,
+            userName:userNameLogin,
+            tweet:tweet,
+            date:dateForm,
+            likeUser:[],
+            reTweetUser:[]
+        }
+        count++;
+        localStorage.setItem('count',count)
+
+        data.unshift(tweetData);
+        localStorage.setItem('tweets',JSON.stringify(data))
+    }
 }
 
 function createOnTweet(obj,continer){
-    const {id,userName,tweet,date} =obj;
+    const {id,userName,tweet,date,reTweetUser,likeUser} =obj;
     let userContiner = document.createElement('div');
     userContiner.className = 'user-continer';
 
@@ -57,12 +89,12 @@ function createOnTweet(obj,continer){
 
     let likeBut = document.createElement('button');
     likeBut.className = 'like-but';
-    likeBut.innerText = 'like';
+    likeBut.innerText = `like  | ${likeUser.length}`;
     likeBut.onclick =likein;
 
     let reTweetBut = document.createElement('button');
     reTweetBut.className = 'retweet-but';
-    reTweetBut.innerText = 'retweet';
+    reTweetBut.innerText = `retweet  | ${reTweetUser.length}`;
     reTweetBut.onclick =reTweet;
 
     buttonContiner.append(likeBut,reTweetBut);
@@ -77,34 +109,16 @@ function createOnTweet(obj,continer){
     
 }
 function createTweets(arr){
+    newsFeed.innerHTML ="";
     arr.forEach(tweet=>{
         createOnTweet(tweet,newsFeed)
-    })
+    });
 }
+createTweets(data);
+
 form.addEventListener('submit',function(e){
     e.preventDefault();
-    
-    if(tweet.value !==""){
-        let date = new Date();
-        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        let dateForm = `${days[date.getDay()]} , ${date.getFullYear()}-${date.getMonth()} -${date.getDate()} , ${(date.getHours()>12)?date.getHours()-12:date.getHours()}:${date.getMinutes()} ${(date.getHours()>12)? "PM":"AM"}`
-
-        let count =1;
-        
-        let tweetData ={
-            id:count,
-            userName:userNameLogin,
-            tweet:tweet.value,
-            date:dateForm,
-            likeUser:[],
-            reTweetUser:[]
-        }
-        data.push(tweetData);
-        newsFeed.innerHTML ="";
-        createTweets(data);
-        tweet.value ="";
-   
-    }
-    
-})
+    createAndAddTweet(tweet.value);
+    createTweets(data);
+});
 
