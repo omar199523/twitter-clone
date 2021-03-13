@@ -155,7 +155,11 @@
 
 }
 .user-name-continer{
+<<<<<<< HEAD
     flex: 500px 2 2;
+=======
+    width:  80%;
+>>>>>>> 12f455f58beacb30ac1822e1ab98e91e0fb23b81
     margin-left: 20px;
     line-height: 1.5em;
 }
