@@ -28,7 +28,7 @@ document.getElementById("login").addEventListener('click',()=>{
         loginContiner.style.display="none";
         main.style.display = "flex";
         userNameLogin = userName.value;
-        userColor = randomColor()
+        loginUserColor = randomColor()
     }
 
 })
